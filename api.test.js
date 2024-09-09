@@ -1,6 +1,6 @@
 const supertest = require('supertest');
 
-const {app,server} = require('./index'); // Importe seu aplicativo Express
+const {app,server, connection} = require('./index.js'); // Importe seu aplicativo Express
 
 describe('Teste GET /users', () => {
 
@@ -14,6 +14,9 @@ expect(response.statusCode).toBe(200);
 
 });
 
+
+
 afterAll(()=> {
     server.close();
+    connection.close();
 });
